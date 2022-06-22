@@ -56,6 +56,10 @@ blob_fixups: blob_fixups_user_type = {
     .clear_symbol_version('AHardwareBuffer_lockPlanes')
     .clear_symbol_version('AHardwareBuffer_release')
     .clear_symbol_version('AHardwareBuffer_unlock'),
+    ('vendor/lib64/hw/camera.qcom.so', 'vendor/lib64/libFaceDetectpp-0.5.2.so', 'vendor/lib64/libfacedet.so'): blob_fixup()
+        .binary_regex_replace(b'libmegface.so', b'libfacedet.so')
+        .binary_regex_replace(b'libMegviiFacepp-0.5.2.so', b'libFaceDetectpp-0.5.2.so')
+        .binary_regex_replace(b'megviifacepp_0_5_2_model', b'facedetectpp_0_5_2_model'),
 }
 
 module = ExtractUtilsModule(
