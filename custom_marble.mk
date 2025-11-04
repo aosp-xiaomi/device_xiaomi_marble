@@ -7,10 +7,15 @@
 # Inherit from marble device
 $(call inherit-product, device/xiaomi/marble/device.mk)
 
-# Inherit from common lineage configuration
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit from common Pixelage configuration
+$(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_marble
+# Boot animation
+TARGET_SCREEN_WIDTH := 1080
+
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+PRODUCT_NAME := custom_marble
 PRODUCT_DEVICE := marble
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO
